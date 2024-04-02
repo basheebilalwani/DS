@@ -45,7 +45,7 @@ void create(queue q){
      int x;
      printf("Enter root value:");
      scanf("%d", &x);
-     root = (tree*)malloc(sizeof(tree*));
+     root = (tree*)malloc(sizeof(tree));
      root->data = x;
      root->lchild = root->rchild = NULL;
      enqueue(&q,root);
@@ -54,7 +54,7 @@ void create(queue q){
         printf("Enter left child:");
         scanf("%d", &x);
         if(x!=-1){
-            t = (tree*)malloc(sizeof(tree*));
+            t = (tree*)malloc(sizeof(tree));
             t->data = x;
             t->rchild = t->lchild = NULL;
             p->lchild = t;
@@ -63,7 +63,7 @@ void create(queue q){
         printf("Enter right child:");
         scanf("%d", &x);
         if(x!=-1){
-            t = (tree*)malloc(sizeof(tree*));
+            t = (tree*)malloc(sizeof(tree));
             t->data = x;
             t->rchild = t->lchild = NULL;
             p->rchild = t;
