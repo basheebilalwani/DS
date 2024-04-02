@@ -127,7 +127,7 @@ void preorder(){
 }
 int main(){
     createtree();
-    printf("Elements you entered are:\n");
+    printf("Preorder:\n");
     preorder();
     return 0;
 }
