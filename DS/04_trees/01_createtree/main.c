@@ -82,7 +82,7 @@ void display(tree * x){
 }
 int main(){
     create();
-    printf("Preorder:\n");
+    printf("Elements you entered are:\n");
     display(root);
     return 0;
 }
