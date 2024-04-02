@@ -12,9 +12,6 @@ typedef struct qu{
         int rear;
         tree**qr;
 }queue;
-void createq(queue*q,int s){
-    q->qr=(tree**)malloc(sizeof(tree*)*s);
-}
 void enqueue(queue*q,tree * x){
      if(q->rear == q->size-1)
         printf("Queue full");
@@ -39,7 +36,11 @@ tree * dequeue(queue * q){
     }
     return x;
 }
-void create(queue q){
+void create(){
+     queue q;
+     q.size=100;
+     q.front=q.rear=-1;
+     q.qr=(tree**)malloc(sizeof(tree*)*q.size);
      tree * p;
      tree * t;
      int x;
@@ -80,14 +81,7 @@ void display(tree * x){
  }
 }
 int main(){
-    queue q;
-    int s;
-    q.front = q.rear = -1;
-    printf("No. of elements you want to insert:");
-    scanf("%d",&s);
-    q.size = s;
-    createq(&q,s);
-    create(q);
+    create();
     printf("Elements of your tree are:\n");
     display(root);
     return 0;
