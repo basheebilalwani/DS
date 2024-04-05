@@ -125,9 +125,79 @@ void preorder(){
      }
     }
 }
+void inorder(){
+     tree*r;
+     r=root;
+     stack s;
+     s.top = -1;
+     s.size = 100;
+     s.sr=(tree**)malloc(sizeof(tree*)*s.size);
+     while(!isemptys(s)||r!=NULL){
+     if(r!=NULL){
+        push(&s,r);
+        r=r->lchild;
+     }
+     else{
+        r = pop(&s);
+        printf("%d\n",r->data);
+        r = r->rchild;
+     }
+    }
+}
+void levelorder(){
+    queue q;
+    q.front = q.rear = -1;
+    q.size = 100;
+    q.qr=(tree**)malloc(sizeof(tree*)*q.size);
+    tree * t;
+    t = root;
+    printf("%d\n",t->data);
+    enqueue(&q,t);
+    while(!isempty(q))
+    {
+        t = dequeue(&q);
+        if(t->lchild)  
+        {
+            printf("%d\n",t->lchild->data);
+            enqueue(&q,t->lchild);
+        }
+        if(t->rchild)  
+        {
+            printf("%d\n",t->rchild->data);
+            enqueue(&q,t->rchild);
+        }
+    }
+}
+int height(tree * p){
+    int x,y;
+    while(p)
+    {
+        x = height(p->lchild);
+        y = height(p->rchild);
+        if(x>y) return x+1;
+        else return y+1;
+    }
+    return 0;
+}
+int count(tree * p){
+    int x,y;
+    while(p)
+    {
+        x = count(p->lchild);
+        y = count(p->rchild);
+        return x+y+1;
+    }
+    return 0;
+}
 int main(){
     createtree();
     printf("Preorder:\n");
     preorder();
+    printf("Inorder:\n");
+    inorder();
+    printf("levelorder:\n");
+    levelorder();
+    printf("Height of tree is: %d\n", height(root));
+    printf("Number of nodes of the tree is: %d", count(root));
     return 0;
 }
