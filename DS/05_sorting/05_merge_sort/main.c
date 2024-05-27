@@ -7,39 +7,39 @@ void merge(int arr[], int lb, int mid, int ub)
 	int k = lb; 
 	int b[ub];
 	while(i<=mid && j<=ub)
-	{
-		if(arr[i]<= arr[j])
-		{
-			b[k]=arr[i];
-			i++;
-		}
-		else
-		{
-			b[k]=arr[j];
-			j++;
-		}
-		k++;
-	}
-	if(i>mid)
-	{
-		while(j>=ub)
-		{
-			b[k]=arr[j];
-			j++; k++;
-		}
-	}
-	if(j>ub)
-	{
-		while(i<=mid)
-		{
-			b[k]=arr[i];
-			k++; i++;
-		}
-	}
-	for(k=lb; k<=ub;k++)
-	{
-		arr[k]=b[k];
-	}	
+{
+	if(arr[i]<= arr[j])
+{
+	b[k]=arr[i];
+	i++;
+}
+else
+{
+ b[k]=arr[j];
+ j++;
+}
+	k++;
+}
+if(i>mid)
+{
+	while(j>=ub)
+{
+	b[k]=arr[j];
+	j++; k++;
+}
+}
+if(j>ub)
+{
+	while(i<=mid)
+{
+	b[k]=arr[i];
+	k++; i++;
+}
+}
+for(k=lb; k<=ub;k++)
+{
+	arr[k]=b[k];
+}	
 }
 void mergesort(int arr[], int lb, int ub)
 {
