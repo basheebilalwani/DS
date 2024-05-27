@@ -41,6 +41,7 @@ int pop(){
 }
 int main(){
     stack stk;
+    create();
     push(30);
     push(42);
     display();
